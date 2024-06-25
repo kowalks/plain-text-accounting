@@ -7,6 +7,15 @@ struct AccountDetail: View {
     
     var body: some View {
         Text(account.name)
+            .font(.title)
+        
+        VStack(alignment: .leading) {
+            Text("Amount: \(account.amount)")
+                .font(.headline)
+            
+            Text("Color: \(account.color.description)")
+                .font(.subheadline)
+        }
     }
 }
 

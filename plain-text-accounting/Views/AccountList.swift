@@ -1,4 +1,5 @@
 import SwiftUI
+import Charts
 
 struct AccountHeading: View {
     var body: some View {
@@ -28,8 +29,20 @@ struct AccountList: View {
             }
             .listStyle(.plain)
             .navigationTitle("Accounts")
-            
         }
+        
+//        if case let .balance(balance) = modelData.charts[0] {
+//            Chart {
+//                ForEach(balance.data, id:\.date) { item in
+//                    LineMark(
+//                        x: .value("Date", item.date),
+//                        y: .value("Profit A", item.balance.BRL ?? 0),
+//                        series: .value("Company", "A")
+//                    )
+//                    .foregroundStyle(.blue)
+//                }
+//            }
+//        }
     }
 }
 

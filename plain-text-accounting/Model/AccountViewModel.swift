@@ -9,7 +9,14 @@ import Foundation
 
 @Observable
 class ModelData {
-    var accounts: [Account] = AccountViewModel.fetchAccounts()
+    var accounts: [Account]
+    var charts: [ChartType]
+
+    init() {
+        let balanceSheet = AccountViewModel.fetchAccounts()
+        self.charts = balanceSheet.0
+        self.accounts = balanceSheet.1
+    }
 }
 
 class BalanceModel: Codable {
@@ -29,29 +36,35 @@ class AccountViewModel: Codable {
         return Account(name: account, amount: balance?.BRL ?? 0, currency: "BRL", children: children)
     }
     
-    static func fetchAccounts() -> [Account] {
-        let models: [AccountViewModel] = fetch("http://127.0.0.1:5000/guilherme-kowalczuk/api/balance_sheet")
-        return models.map { $0.asAccount() }
+    static func fetchAccounts() -> ([ChartType], [Account]) {
+        let models: TreeWrapper<[AccountViewModel]> = fetch("http://127.0.0.1:5000/guilherme-kowalczuk/api/balance_sheet")
+        return (models.charts, models.trees.map { $0.asAccount() })
     }
 }
 
 struct ResponseWrapper<T: Decodable>: Decodable {
-    let data: TreeWrapper<T>
+    let data: T
 }
 
 struct TreeWrapper<T: Decodable>: Decodable {
+    let charts: [ChartType]
     let trees: T
 }
 
-func fetch<T: Decodable>(_ url: String) -> T {
+func fetch<T: Decodable>(_ url: String) -> TreeWrapper<T> {
     guard let url = URL(string: url) else {
         fatalError("String \(url) is not a valid URL.")
     }
     do {
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
-        let result = try decoder.decode(ResponseWrapper<T>.self, from: data)
-        return result.data.trees
+        let result = try decoder.decode(ResponseWrapper<TreeWrapper<T>>.self, from: data)
+        
+        if case let .balance(balanceChart) = result.data.charts[0] {
+            print(balanceChart.type)
+        }
+        
+        return result.data
     } catch {
         fatalError("Failed to fetch data from \(url): \(error.localizedDescription)")
     }

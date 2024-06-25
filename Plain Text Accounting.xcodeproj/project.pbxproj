@@ -21,6 +21,8 @@
 		B318E45C2C28FD5F003AEE2D /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318E45B2C28FD5F003AEE2D /* Account.swift */; };
 		B318E45E2C291008003AEE2D /* AccountDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318E45D2C291008003AEE2D /* AccountDetail.swift */; };
 		B318E4602C2917F8003AEE2D /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B318E45F2C2917F8003AEE2D /* AccountViewModel.swift */; };
+		B3743B5D2C2A75B60038C88A /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3743B5C2C2A75B60038C88A /* LineChart.swift */; };
+		B3FB926F2C2A2B7C0039A9A9 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FB926E2C2A2B7C0039A9A9 /* ChartModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,8 @@
 		B318E45B2C28FD5F003AEE2D /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		B318E45D2C291008003AEE2D /* AccountDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetail.swift; sourceTree = "<group>"; };
 		B318E45F2C2917F8003AEE2D /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		B3743B5C2C2A75B60038C88A /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
+		B3FB926E2C2A2B7C0039A9A9 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 				B318E4562C28F5A2003AEE2D /* AccountRow.swift */,
 				B318E4582C28F8B2003AEE2D /* AccountList.swift */,
 				B318E45D2C291008003AEE2D /* AccountDetail.swift */,
+				B3743B5C2C2A75B60038C88A /* LineChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 			children = (
 				B318E45B2C28FD5F003AEE2D /* Account.swift */,
 				B318E45F2C2917F8003AEE2D /* AccountViewModel.swift */,
+				B3FB926E2C2A2B7C0039A9A9 /* ChartModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -294,8 +300,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3FB926F2C2A2B7C0039A9A9 /* ChartModel.swift in Sources */,
 				B318E4312C28F47A003AEE2D /* plain_text_accounting.xcdatamodeld in Sources */,
 				B318E42E2C28F47A003AEE2D /* Persistence.swift in Sources */,
+				B3743B5D2C2A75B60038C88A /* LineChart.swift in Sources */,
 				B318E4272C28F479003AEE2D /* ContentView.swift in Sources */,
 				B318E4252C28F479003AEE2D /* PlainTextAccountingApp.swift in Sources */,
 				B318E4602C2917F8003AEE2D /* AccountViewModel.swift in Sources */,
